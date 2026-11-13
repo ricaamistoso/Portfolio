@@ -1,0 +1,179 @@
+:root {
+  --pink: #fb5873;
+  --red: #e63950;
+  --white: #ffffff;
+  --bg: #ffefea;      /* main background */
+  --card-bg: #fff8f5; /* lighter shade for cards */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: var(--bg);
+  color: var(--pink);
+  overflow-x: hidden;
+}
+
+/* Checkered strip on the right */
+.checker {
+  position: fixed;
+  top: 0; right: 0;
+  width: 152px;
+  height: 100vh;
+  z-index: 5;
+  background:
+    conic-gradient(var(--pink) 25%, var(--bg) 0 50%, var(--pink) 0 75%, var(--bg) 0)
+    0 0 / 152px 152px;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: calc(100% - 152px);
+  height: 110px;
+  background: var(--bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px 0 110px;
+  z-index: 10;
+}
+.logo, .navbar nav a, h1, h2, h3, .btn {
+  font-family: "Bebas Neue", sans-serif;
+  text-decoration: none;
+  color: var(--pink);
+}
+.logo { font-size: 2.2rem; letter-spacing: 1px; }
+.navbar nav { display: flex; align-items: center; gap: 40px; }
+.navbar nav a { font-size: 2rem; line-height: 0.95; transition: 0.3s; }
+.navbar nav a.two-line { font-size: 1.6rem; text-align: right; }
+.navbar nav a.active { text-shadow: 0.5px 0 0 var(--pink); border-bottom: 3px solid var(--pink); }
+.navbar nav a:hover { color: var(--red); }
+
+/* PAGE */
+.section {
+  min-height: 100vh;
+  padding: 140px 200px 60px 110px;
+  position: relative;
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: none; }
+}
+.big { font-size: 9rem; line-height: 0.85; font-weight: 400; }
+.right { text-align: right; }
+p { font-size: 1.15rem; line-height: 1.6; text-align: justify; color: var(--red); }
+img { display: block; max-width: 100%; object-fit: cover; }
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  border: 2px solid var(--pink);
+  border-radius: 40px;
+  padding: 12px 40px;
+  font-size: 1.6rem;
+  transition: 0.3s;
+}
+.btn:hover { background: var(--pink); color: var(--white); }
+.btn.center { display: block; width: fit-content; margin: 30px auto 0; }
+.btn.small { font-size: 1.2rem; padding: 6px 24px; margin-top: 12px; }
+
+/* HOME */
+.hero { padding-left: 50px; padding-right: 160px; }
+.hero-img { position: relative; height: 70vh; overflow: hidden; }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+
+.hero-text {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2vw;
+  padding: 0 2vw;
+}
+.hero-my, .hero-portfolio {
+  position: static;
+  color: var(--pink);
+  font-weight: 400;
+  line-height: 0.8;
+  white-space: nowrap;
+}
+.hero-my { font-size: clamp(5rem, 14vw, 16rem); -webkit-text-stroke: 3px var(--bg); }
+.hero-portfolio { font-size: clamp(4rem, 11vw, 13rem); }
+
+.handle { position: fixed; left: 8px; bottom: 6px; font-size: 1.2rem; z-index: 11; }
+
+/* WELCOME */
+.welcome-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.welcome-top img {
+  width: 62%;
+  height: 50vh;
+  min-height: 320px;
+  margin-left: -110px;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.welcome-top .big { font-size: 10rem; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-top: 40px; }
+
+/* INTRODUCTION */
+.intro { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 50px; align-items: center; }
+.intro .big { font-size: 8rem; margin-bottom: 40px; }
+.intro-img { width: 100%; height: 80vh; }
+.intro-right .btn { margin-top: 40px; margin-left: 50px; }
+
+/* ABOUT */
+.about { display: flex; align-items: center; gap: 50px; }
+.about-img { width: 55%; height: 62vh; margin-left: -110px; }
+.about-text .big { font-size: 10rem; margin-bottom: 50px; }
+.about-text .btn { margin-top: 60px; }
+
+/* SKILLS */
+.skills { display: grid; grid-template-columns: 420px 1fr; grid-template-rows: auto auto; gap: 20px 60px; }
+.skills .big { font-size: 10rem; grid-row: 1 / 3; }
+.skill-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+.skill-cols h3 { font-size: 2.2rem; text-align: right; margin-bottom: 15px; }
+.skill-banner { grid-column: 2; width: 100%; height: 330px; }
+
+/* PROJECTS & CERTIFICATES */
+.projects .big { font-size: 8rem; }
+.projects .sub { margin: 15px 0 40px; max-width: 700px; text-align: left; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.card { border: 2px solid var(--pink); border-radius: 20px; padding: 18px; background: var(--card-bg); transition: 0.3s; }
+.card:hover { transform: translateY(-8px); box-shadow: 8px 8px 0 var(--pink); }
+.card img { width: 100%; height: 200px; border-radius: 12px; margin-bottom: 15px; background: #ffd9df; }
+.card h3 { font-size: 2rem; margin-bottom: 8px; }
+.card p { font-size: 1rem; text-align: left; }
+.cert-title { margin-top: 90px; }
+.cert img { height: 230px; }
+
+/* CONTACT */
+.contact { display: grid; grid-template-columns: 1fr 430px 1fr; gap: 40px; padding-bottom: 0; }
+.contact-left .big { font-size: 8rem; margin: 60px 0 80px -30px; }
+.contact-left h3 { font-size: 2.2rem; margin-top: 25px; }
+.contact-left p { text-align: left; color: var(--pink); }
+.contact-left .r { text-align: right; }
+.contact-img { width: 100%; height: 85vh; }
+.contact-right { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 80px; }
+.signature { font-size: 2.2rem; text-align: right; }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .checker { width: 40px; background-size: 40px 40px; }
+  .navbar { width: calc(100% - 40px); padding: 10px 20px 0; height: auto; flex-direction: column; gap: 8px; }
+  .navbar nav { gap: 18px; }
+  .navbar nav a { font-size: 1.3rem; }
+  .navbar nav a.two-line { font-size: 1.1rem; }
+  .section { padding: 160px 60px 40px 20px; }
+  .big, .welcome-top .big, .intro .big, .about-text .big, .skills .big,
+  .projects .big, .contact-left .big { font-size: 4.5rem !important; margin-left: 0; }
+  .welcome-top, .about { flex-direction: column; }
+  .welcome-top img, .about-img { width: 100%; margin-left: 0; }
+  .three-col, .intro, .skills, .skill-cols, .cards, .contact { grid-template-columns: 1fr; }
+  .skill-banner { grid-column: 1; }
+  .intro-img, .contact-img { height: 50vh; }
+}
